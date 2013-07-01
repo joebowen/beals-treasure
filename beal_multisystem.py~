@@ -21,8 +21,8 @@ import warnings
 warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 processors = cpu_count()  #Number of processors on machine   
-username = ""
-password = ""
+username = "jbbowen"
+password = "R0cketrc327"
 memory = 0
 max_base = 10000
 
