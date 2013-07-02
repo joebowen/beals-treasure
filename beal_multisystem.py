@@ -3,7 +3,6 @@
 #x^m + y^n = z^r and m,n,r > 2 and x,y,z co-prime (pairwise no common factor).
 
 #ALGORITHM: Initialize the variables table, pow, bases, powers such that:
-#        pow[z][r] = z**r
 #        table.get(sum) = r if there is a z such that z**r = sum.  
 #        bases = [1, 2, ... max_base]
 #        powers = [3, 4, ... max_power]
