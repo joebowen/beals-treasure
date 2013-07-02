@@ -19,11 +19,11 @@ import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
-processors = cpu_count()  #Number of processors on machine   
-username = ""
+processors = cpu_count()
+username = ""     #Enter your bealstreasure.com username and password here
 password = ""
-memory = 0
-max_base = 10000
+memory = 0        #Does nothing right now, I want it to reflect the memory/thread used for each set_id.
+max_base = 10000  #This is the max base values (x,y,z) to search through
 
 def beal_parallel(max_base, queue):
   (m, n, set_id) = queue.get()
@@ -84,8 +84,6 @@ def nth_root(base, n):
   return long(round(base ** (1.0/n)))
 
 def beal():
-  start_timer = time.time()  #time.clock() is unusable due to multiprocessing
-  
   queue = Queue()
   pool = []
   for process in xrange(processors):  #Create the same number of processes as processors available
