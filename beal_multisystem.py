@@ -41,18 +41,18 @@ def beal_parallel(max_base, queue):
         zr = table.get(sum)
         if zr:
           passman = urllib2.HTTPPasswordMgrWithDefaultRealm( )
-          passman.add_password(None, "http://10.1.10.150/Beal2/members/", username, password)
+          passman.add_password(None, "http://bealstreasure.com/members/", username, password)
           authhandler = urllib2.HTTPBasicAuthHandler(passman)
           opener = urllib2.build_opener(authhandler)
-          f = opener.open("http://10.1.10.150/Beal2/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
+          f = opener.open("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
          
           report(x, m, y, n, nth_root(sum, zr), zr)
     
     passman = urllib2.HTTPPasswordMgrWithDefaultRealm( )
-    passman.add_password(None, "http://10.1.10.150/Beal2/members/", username, password)
+    passman.add_password(None, "http://bealstreasure.com/members/", username, password)
     authhandler = urllib2.HTTPBasicAuthHandler(passman)
     opener = urllib2.build_opener(authhandler)
-    f = opener.open("http://10.1.10.150/Beal2/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
+    f = opener.open("http://bealstreasure.com/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
          
     (m, n, set_id) = queue.get()
        
@@ -96,10 +96,10 @@ def beal():
     
   while (True):
     passman = urllib2.HTTPPasswordMgrWithDefaultRealm( )
-    passman.add_password(None, "http://10.1.10.150/Beal2/members/", username, password)
+    passman.add_password(None, "http://bealstreasure.com/members/", username, password)
     authhandler = urllib2.HTTPBasicAuthHandler(passman)
     opener = urllib2.build_opener(authhandler)
-    f = opener.open("http://10.1.10.150/Beal2/members/getwork.php?username="+ username + "&max_base=" + str(max_base)).read()
+    f = opener.open("http://bealstreasure.com/members/getwork.php?username="+ username + "&max_base=" + str(max_base)).read()
     
     param = f.split(",")
     queue.put((int(param[0]), int(param[1]), param[2]))
