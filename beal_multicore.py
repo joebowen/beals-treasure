@@ -3,7 +3,6 @@
 #x^m + y^n = z^r and m,n,r > 2 and x,y,z co-prime (pairwise no common factor).
 
 #ALGORITHM: Initialize the variables table, pow, bases, powers such that:
-#        pow[z][r] = z**r
 #        table.get(sum) = r if there is a z such that z**r = sum.  
 #        bases = [1, 2, ... max_base]
 #        powers = [3, 4, ... max_power]
@@ -89,11 +88,9 @@ def beal(max_base, max_power):
 
 
 
-#Memory Test
-#table, pow = initial_data(5000000, 3, 7, 10)
-#table, pow = initial_data(250000, 1000)  
+#basic Syntax
+#print beal( max_base, max_power )
 
-#print "Memory Test Complete"  
 
 #Test Run    
 #print beal( 100, 1000)  
