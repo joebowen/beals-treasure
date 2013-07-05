@@ -1,3 +1,5 @@
+
+#!/usr/bin/python
 #Print counterexamples to Beal's conjecture.
 #That is, find positive integers x,m,y,n,z,r such that:
 #x^m + y^n = z^r and m,n,r > 2 and x,y,z co-prime (pairwise no common factor).
