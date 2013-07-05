@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 #Print counterexamples to Beal's conjecture.
 #That is, find positive integers x,m,y,n,z,r such that:
@@ -27,7 +26,7 @@ username = ""      #NOTE: Create a free username on bealstreasure.com
 password = ""      
 
 memory = 0        #Does nothing right now, I want it to reflect the memory/thread used for each set_id.
-max_base = 10000  #This is the max base values (x,y,z) to search through
+max_base = 10000  #DO NOT CHANGE!
 
 def beal_parallel(max_base, queue):
   (m, n, set_id) = queue.get()
