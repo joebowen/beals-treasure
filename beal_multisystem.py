@@ -21,8 +21,8 @@ warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 processors = cpu_count()
 
-username = "charity"      #NOTE: Do NOT Change!!!
-password = "charity"      #NOTE: Do NOT Change!!!
+username = ""      #NOTE: Create a free username on bealstreasure.com
+password = ""      
 
 memory = 0        #Does nothing right now, I want it to reflect the memory/thread used for each set_id.
 max_base = 10000  #This is the max base values (x,y,z) to search through
