@@ -103,7 +103,7 @@ def beal():
     param = f.split(",")
     queue.put((int(param[0]), int(param[1]), param[2]))
       
-    while (queue.qsize() > 3):
+    while (queue.qsize() > 1):
       time.sleep(5)
 
 beal()
