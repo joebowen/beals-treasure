@@ -46,9 +46,9 @@ def beal_parallel(max_base, queue):
           passman.add_password(None, "http://bealstreasure.com/members/", username, password)
           authhandler = urllib2.HTTPBasicAuthHandler(passman)
           opener = urllib2.build_opener(authhandler)
-          f = opener.open("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
-         
           print 'Yay!!!: %d ^ %d + %d ^ %d = %s' % ( x,   m,   y,   n,   zr)
+          f = opener.open("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
+          
           report(x, m, y, n, nth_root(sum, zr), zr)
     
     passman = urllib2.HTTPPasswordMgrWithDefaultRealm( )
