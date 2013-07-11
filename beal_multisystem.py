@@ -40,9 +40,9 @@ def beal_parallel(max_base, queue):
         zr = table.get(sum)
         if zr:
           print 'Yay!!!: %d ^ %d + %d ^ %d = %s' % ( x,   m,   y,   n,   zr)
-          f = urllib.urlopen("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
+          f = urllib.urlopen("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n)).read()
           
-          report(x, m, y, n, nth_root(sum, zr), zr)
+          report(x, m, y, n)
 
     f = urllib.urlopen("http://bealstreasure.com/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
          
@@ -66,12 +66,11 @@ def initial_data(max_base, m, n):
     powy[i] = yn
   return powx, powy, table
 
-def report(x, m, y, n, z, r):
-  x, y, z = map(long, (x, y, z))
-  if (min(x, y, z) > 0 and min(m, n, r) > 2 ):
-    if (x ** m + y ** n == z ** r):  
-      if gcd(x,y) == gcd(x,z) == gcd(y, z) == 1: 
-        print 'Yay!!!: %d ^ %d + %d ^ %d = %d ^ %d = %s' % ( x,   m,   y,   n,   z,   r,  z**r)
+def report(x, m, y, n):
+  x, y = map(long, (x, y))
+  if (min(x, y) > 0 and min(m, n) > 2 ):
+    if gcd(x,y) == 1: 
+      print 'We might have a solution!!  Contact bealstreasure.com for details: %d ^ %d + %d ^ %d' % ( x,   m,   y,   n)
 
 def nth_root(base, n): 
   return long(round(base ** (1.0/n)))
