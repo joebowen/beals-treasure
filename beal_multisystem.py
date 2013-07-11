@@ -15,10 +15,8 @@ from multiprocessing import Process, Queue, cpu_count
 import time
 import math
 from gmpy import gcd
-import urllib2
-import warnings
+import urllib
 
-warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 processors = cpu_count()
 
@@ -42,11 +40,11 @@ def beal_parallel(max_base, queue):
         zr = table.get(sum)
         if zr:
           print 'Yay!!!: %d ^ %d + %d ^ %d = %s' % ( x,   m,   y,   n,   zr)
-          f = urllib2.openurl("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
+          f = urllib.urlopen("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
           
           report(x, m, y, n, nth_root(sum, zr), zr)
 
-    f = urllib2.openurl("http://bealstreasure.com/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
+    f = urllib.urlopen("http://bealstreasure.com/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
          
     (m, n, set_id) = queue.get()
        
@@ -87,7 +85,7 @@ def beal():
     pool.append(pr)
     
   while (True):
-    f = urllib2.openurl("http://bealstreasure.com/members/getwork.php?username="+ username + "&max_base=" + str(max_base)).read()
+    f = urllib.urlopen("http://bealstreasure.com/members/getwork.php?username="+ username + "&max_base=" + str(max_base)).read()
     
     param = f.split(",")
     queue.put((int(param[0]), int(param[1]), param[2]))
