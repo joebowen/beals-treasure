@@ -22,8 +22,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 processors = cpu_count()
 
-username = ""      #NOTE: Create a free username on bealstreasure.com
-password = ""      
+username = ""      #NOTE: Enter your email address here in case you find the solution
 
 memory = 0        #Does nothing right now, I want it to reflect the memory/thread used for each set_id.
 max_base = 10000  #DO NOT CHANGE!
@@ -42,20 +41,12 @@ def beal_parallel(max_base, queue):
         sum = powx_tmp + powy[y]
         zr = table.get(sum)
         if zr:
-          passman = urllib2.HTTPPasswordMgrWithDefaultRealm( )
-          passman.add_password(None, "http://bealstreasure.com/members/", username, password)
-          authhandler = urllib2.HTTPBasicAuthHandler(passman)
-          opener = urllib2.build_opener(authhandler)
           print 'Yay!!!: %d ^ %d + %d ^ %d = %s' % ( x,   m,   y,   n,   zr)
-          f = opener.open("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
+          f = urllib2.openurl("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n) + "&z=" + str(nth_root(sum, zr))).read()
           
           report(x, m, y, n, nth_root(sum, zr), zr)
-    
-    passman = urllib2.HTTPPasswordMgrWithDefaultRealm( )
-    passman.add_password(None, "http://bealstreasure.com/members/", username, password)
-    authhandler = urllib2.HTTPBasicAuthHandler(passman)
-    opener = urllib2.build_opener(authhandler)
-    f = opener.open("http://bealstreasure.com/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
+
+    f = urllib2.openurl("http://bealstreasure.com/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
          
     (m, n, set_id) = queue.get()
        
@@ -96,11 +87,7 @@ def beal():
     pool.append(pr)
     
   while (True):
-    passman = urllib2.HTTPPasswordMgrWithDefaultRealm( )
-    passman.add_password(None, "http://bealstreasure.com/members/", username, password)
-    authhandler = urllib2.HTTPBasicAuthHandler(passman)
-    opener = urllib2.build_opener(authhandler)
-    f = opener.open("http://bealstreasure.com/members/getwork.php?username="+ username + "&max_base=" + str(max_base)).read()
+    f = urllib2.openurl("http://bealstreasure.com/members/getwork.php?username="+ username + "&max_base=" + str(max_base)).read()
     
     param = f.split(",")
     queue.put((int(param[0]), int(param[1]), param[2]))
