@@ -54,7 +54,7 @@ def initial_data(max_base, m, n):
   
   table = {}
   for i in xrange(1, max_base):
-    for r in xrange(3, max([m, n])):
+    for r in xrange(3, max([m, n]) + 1):
       zr = long(i) ** r
       table[zr] = r
   
