@@ -39,8 +39,6 @@ def beal_parallel(max_base, queue):
         sum = powx_tmp + powy[y]
         zr = table.get(sum)
         if zr:
-          print 'Yay!!!: %d ^ %d + %d ^ %d = %s' % ( x,   m,   y,   n,   zr)
-          
           report(x, m, y, n)
 
     f = urllib.urlopen("http://bealstreasure.com/members/savework.php?result=false&memory=" + str(memory) + "&id=" + str(set_id)).read()
