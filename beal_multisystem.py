@@ -40,7 +40,6 @@ def beal_parallel(max_base, queue):
         zr = table.get(sum)
         if zr:
           print 'Yay!!!: %d ^ %d + %d ^ %d = %s' % ( x,   m,   y,   n,   zr)
-          f = urllib.urlopen("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n)).read()
           
           report(x, m, y, n)
 
@@ -71,7 +70,8 @@ def report(x, m, y, n):
   if (min(x, y) > 0 and min(m, n) > 2 ):
     if gcd(x,y) == 1: 
       print 'We might have a solution!!  Contact bealstreasure.com for details: %d ^ %d + %d ^ %d' % ( x,   m,   y,   n)
-
+      f = urllib.urlopen("http://bealstreasure.com/members/savework.php?&result=true&x=" + str(x) + "&m=" + str(m) + "&y=" + str(y) + "&n=" + str(n)).read()
+          
 def nth_root(base, n): 
   return long(round(base ** (1.0/n)))
 
