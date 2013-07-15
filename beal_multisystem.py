@@ -38,6 +38,7 @@ def beal_parallel(max_base, queue):
     if (max_exp + 10 > max([m, n]))
     {
       table = initial_data_table(max_base, m, n)
+      max_exp = max([m, n])
     }
      
     powx, powy = initial_data_pow(max_base, m, n)
