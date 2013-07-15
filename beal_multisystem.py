@@ -20,7 +20,7 @@ import urllib
 
 processors = cpu_count()
 
-username = ""      #NOTE: Enter your email address here in case you find the solution
+username = "charity"      #NOTE: Enter your email address here in case you find the solution
 
 memory = 0        #Does nothing right now, I want it to reflect the memory/thread used for each set_id.
 max_base = 10000  #DO NOT CHANGE!
@@ -35,12 +35,10 @@ def beal_parallel(max_base, queue):
   while(True):
     print '(%d, %d, %s)' % (m, n, set_id)
      
-    if (max_exp + 10 > max([m, n]))
-    {
+    if (max_exp < max([m, n]) + 10):
       table = initial_data_table(max_base, m, n)
       max_exp = max([m, n])
-    }
-     
+         
     powx, powy = initial_data_pow(max_base, m, n)
 
     for x in xrange(1, max_base):
@@ -56,10 +54,7 @@ def beal_parallel(max_base, queue):
          
     (m, n, set_id) = queue.get()
        
-def initial_data_pow(max_base, m, n):
-  powx = [None] * (max_base+1)
-  powy = [None] * (max_base+1)
-  
+def initial_data_table(max_base, m, n):  
   table = {}
   for i in xrange(1, max_base):
     for r in xrange(3, max([m, n]) + 1):
@@ -67,7 +62,10 @@ def initial_data_pow(max_base, m, n):
       table[zr] = r
   return table
   
-def initial_data_table(max_base, m, n)
+def initial_data_pow(max_base, m, n):
+  powx = [None] * (max_base+1)
+  powy = [None] * (max_base+1)
+
   for i in xrange(1, max_base):
     xm = long(i) ** m
     powx[i] = xm
