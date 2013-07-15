@@ -26,11 +26,21 @@ memory = 0        #Does nothing right now, I want it to reflect the memory/threa
 max_base = 10000  #DO NOT CHANGE!
 
 def beal_parallel(max_base, queue):
+  m=200;
+  n=200;
+  max_exp = max([m, n])
+  table = initial_data_table(max_base, m, n)
+
   (m, n, set_id) = queue.get()
   while(True):
     print '(%d, %d, %s)' % (m, n, set_id)
-
-    powx, powy, table = initial_data(max_base, m, n)
+     
+    if (max_exp + 10 > max([m, n]))
+    {
+      table = initial_data_table(max_base, m, n)
+    }
+     
+    powx, powy = initial_data_pow(max_base, m, n)
 
     for x in xrange(1, max_base):
       powx_tmp = powx[x]
@@ -45,7 +55,7 @@ def beal_parallel(max_base, queue):
          
     (m, n, set_id) = queue.get()
        
-def initial_data(max_base, m, n):
+def initial_data_pow(max_base, m, n):
   powx = [None] * (max_base+1)
   powy = [None] * (max_base+1)
   
@@ -54,14 +64,16 @@ def initial_data(max_base, m, n):
     for r in xrange(3, max([m, n]) + 1):
       zr = long(i) ** r
       table[zr] = r
+  return table
   
+def initial_data_table(max_base, m, n)
   for i in xrange(1, max_base):
     xm = long(i) ** m
     powx[i] = xm
     
     yn = long(i) ** n
     powy[i] = yn
-  return powx, powy, table
+  return powx, powy
 
 def report(x, m, y, n):
   x, y = map(long, (x, y))
