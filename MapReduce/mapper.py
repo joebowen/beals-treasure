@@ -14,6 +14,7 @@
 #values of x,y,z in bases, and all values of m,n,r in powers.
 
 import urllib
+import sys
 
 #NOTE: Enter your email address here in case you find the solution
 #This will make tracking down the user who's computer finds the solution
